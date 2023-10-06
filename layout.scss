@@ -1,0 +1,160 @@
+*{
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+@import 'breakpoints';
+
+@keyframes logo {
+    0% {
+        transform: translateX(0);
+    }
+    33%{
+       
+        box-shadow: 10px 5px 10px red;
+        transform: translateY(30%);
+    }
+    50%{
+        box-shadow: 10px 5px 10px blueviolet;
+        transform: translateX(30%) translateY(30%)   
+     }
+     70%{
+        box-shadow: 10px 5px 10px rgb(226, 162, 43);
+        transform: translateX(30%);
+     }
+     100%{
+        transform: translateX(0);
+     }
+}
+
+$font-franklin:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+.container{
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin:0 auto;
+    padding: 16px;
+    
+}
+
+.navbar{
+    
+ box-sizing: border-box;
+    &__header{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        
+        align-items: center;
+    }
+
+    &__logo--item{
+        width: 100px;
+        border-radius: 50%;
+        transition: 1s ease-in-out;
+        &:hover{
+            cursor: pointer;
+            animation: logo 2s ease-in forwards;
+            
+        }
+    }
+
+    &__list{
+        display: flex;
+        align-items: center;
+        flex-direction: wrap;
+        gap:16px;
+        @include lg{
+            display: none;
+        }
+       
+    }
+
+    &__link{
+        text-decoration: none;
+        color:rgb(57, 99, 190);
+        font-size: 1.4rem;
+        &:hover{
+        text-decoration: underline orange;
+        
+        }
+
+        &--active{
+            font-weight: 700;
+        }
+        &--button{
+            color:whitesmoke;
+        }
+    }
+    &__list-item--style{
+        padding:15px;
+        background-color: rgb(57, 99, 190);
+        color: rgb(209, 180, 180);
+        cursor: pointer;
+        &:hover{
+            transform:rotateX('angle');
+        }
+    }
+   
+}
+
+.main{
+    
+    max-width: 800px;
+    margin:0 auto;
+
+    &__title{
+        font-family:$font-franklin;
+        font-size: clamp(2rem,3vw,3rem);
+        text-align: center;
+
+    
+    }
+    &__text{
+        font-weight: 600;
+        color: #222222;
+        font-size: clamp(1rem,1.4vw,1.5rem);
+        line-height: 80px;
+        font-family:$font-franklin;
+        text-align: center;
+    }
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap:3rem;
+   
+    &__profile{
+        max-width: 300px;
+        height: 400px;
+        padding:16px;
+        background-color:rgb(233, 231, 231);
+        border: 1px solid rgb(207, 206, 206);
+        transition: 0.5s ease-in-out;
+        border-radius: 10px;
+        @include lg{
+            max-width:200px;
+            max-height:350px;
+        }
+        &:hover{
+            background-color: rgb(247, 119, 119);
+            color:whitesmoke;
+            cursor: pointer;
+        }
+      
+    }
+    &__image{
+        width: 100%;
+    }
+    &__title{
+        text-align: center;
+    }
+    &__text{
+        text-align: center;
+        font-family:'Courier New', Courier, monospace;
+    }
+
+}
